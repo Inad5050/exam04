@@ -2,14 +2,7 @@
 #include <sys/wait.h>
 #include <string.h>
 #include <stdlib.h>
-
-/*not needed in exam, but necessary if you want to use this tester:
-https://github.com/Glagan/42-exam-rank-04/blob/master/microshell/test.sh*/
-// #ifdef TEST_SH
-// # define TEST		1
-// #else
-// # define TEST		0
-// #endif
+#include <stdio.h>
 
 void	ft_putstr_fd2(char *str, char *arg)
 {
@@ -58,7 +51,7 @@ int	main(int argc, char *argv[], char *env[])
 		}
 		else if (i != 0 && (argv[i] == NULL || strcmp(argv[i], ";") == 0)) //exec in stdout
 		{
-			if ( fork() == 0)
+			if (fork() == 0)
 				ft_execute(argv, i, tmp_fd, env);
 			else
 			{
